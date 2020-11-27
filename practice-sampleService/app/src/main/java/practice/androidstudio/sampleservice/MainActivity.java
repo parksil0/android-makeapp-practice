@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,5 +33,26 @@ public class MainActivity extends AppCompatActivity {
                 startService(intent);
             }
         });
+
+        //액티비티가 새로 만들어질 때 전달된 인텐트 처리하기.
+        Intent passedIntent = getIntent();
+        processIntent(passedIntent);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+
+        //액티비티가 이미 만들어져 있을 때 전달된 인텐트 처리하기
+        processIntent(intent);
+        super.onNewIntent(intent);
+    }
+
+    private void processIntent(Intent intent) {
+        if(intent != null) {
+            String command = intent.getStringExtra("command");
+            String name = intent.getStringExtra("name");
+
+            Toast.makeText(this, "command : " + command + ", name : " + name, Toast.LENGTH_LONG).show();
+        }
     }
 }
