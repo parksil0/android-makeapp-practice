@@ -1,0 +1,4 @@
+<resources>
+    <style name="appTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+    <string name="app_name">SampleTap</string>
+</resources>
