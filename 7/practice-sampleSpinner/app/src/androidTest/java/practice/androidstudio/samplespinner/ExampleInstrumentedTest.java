@@ -1,4 +1,4 @@
-package practice.androidstudio.myapplication;
+package practice.androidstudio.samplespinner;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("practice.androidstudio.myapplication", appContext.getPackageName());
+        assertEquals("practice.androidstudio.samplespinner", appContext.getPackageName());
     }
 }

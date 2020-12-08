@@ -1,4 +1,4 @@
-package practice.androidstudio.myapplication;
+package practice.androidstudio.recyclerview2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder>{
+//어댑터 클래스가 새로 정의한 리스너 인터페이스 구현하도록 하기
+public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder>
+    implements OnPersonItemClickListener{
+
     ArrayList<Person> items = new ArrayList<>();
+    OnPersonItemClickListener listener;
 
     //뷰 홀더 객체가 만들어 질 때 메서드가 실행된다
     @NonNull
@@ -22,7 +26,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
         View itemView = inflater.inflate(R.layout.person_item, viewGroup, false);
 
         //뷰 홀더 객체를 생성하면서 뷰 객체를 전달하고 그 뷰홀더 객체를 반환하기기
-        return new ViewHolder(itemView);
+        return new ViewHolder(itemView,this);
     }
 
     //뷰 홀더 객체가 재사용 될 때
@@ -62,6 +66,18 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
         public void setItem(Person item) {
             textView.setText(item.getName());
             textView2.setText(item.getMobile());
+        }
+    }
+
+    //외부에서 리스너를 설정할 수 있도록 메서드 추가하기
+    public void setOnItemClickListener(OnPersonItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onItemClick(ViewHolder holder, View view, int position) {
+        if(listener != null) {
+            listener.onItemClick(holder, view, position);
         }
     }
 

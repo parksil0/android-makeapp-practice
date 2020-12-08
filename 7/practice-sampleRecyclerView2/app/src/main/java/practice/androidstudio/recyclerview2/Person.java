@@ -1,4 +1,4 @@
-package practice.androidstudio.myapplication;
+package practice.androidstudio.recyclerview2;
 
 public class Person {
     String name;

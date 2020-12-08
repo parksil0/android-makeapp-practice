@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "practice.androidstudio.recyclerview2"
+        applicationId "practice.androidstudio.samplespinner"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1

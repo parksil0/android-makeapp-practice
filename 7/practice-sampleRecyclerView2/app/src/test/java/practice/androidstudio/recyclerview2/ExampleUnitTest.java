@@ -1,4 +1,4 @@
-package practice.androidstudio.myapplication;
+package practice.androidstudio.recyclerview2;
 
 import org.junit.Test;
 
